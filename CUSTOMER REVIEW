@@ -1,0 +1,114 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Copy of Untitled8.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyPNor5DtTWqVM695ZPjOUIK",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/akebut/spam/blob/main/CUSTOMER%20REVIEW\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "yCuSnmGVlLd6"
+      },
+      "outputs": [],
+      "source": [
+        ""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 833
+        },
+        "id": "ynd8CTLBRssZ",
+        "outputId": "fb4535f6-4fca-491d-83de-947091e6c3dc"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Collecting multimodal-transformers\n",
+            "  Downloading https://files.pythonhosted.org/packages/99/5f/3c1509a15b1c41daeb6e812deefbf52fb52012c3b7cd4b5721143fa7a345/multimodal_transformers-0.11a0.tar.gz\n",
+            "Requirement already satisfied: torch in /usr/local/lib/python3.6/dist-packages (from multimodal-transformers) (1.6.0+cu101)\n",
+            "Collecting transformers>=3.0\n",
+            "\u001b[?25l  Downloading https://files.pythonhosted.org/packages/ae/05/c8c55b600308dc04e95100dc8ad8a244dd800fe75dfafcf1d6348c6f6209/transformers-3.1.0-py3-none-any.whl (884kB)\n",
+            "\u001b[K     |████████████████████████████████| 890kB 7.0MB/s \n",
+            "\u001b[?25hRequirement already satisfied: numpy in /usr/local/lib/python3.6/dist-packages (from multimodal-transformers) (1.18.5)\n",
+            "Requirement already satisfied: tqdm in /usr/local/lib/python3.6/dist-packages (from multimodal-transformers) (4.41.1)\n",
+            "Requirement already satisfied: scipy in /usr/local/lib/python3.6/dist-packages (from multimodal-transformers) (1.4.1)\n",
+            "Requirement already satisfied: networkx in /usr/local/lib/python3.6/dist-packages (from multimodal-transformers) (2.5)\n",
+            "Requirement already satisfied: scikit-learn in /usr/local/lib/python3.6/dist-packages (from multimodal-transformers) (0.22.2.post1)\n",
+            "Requirement already satisfied: pandas in /usr/local/lib/python3.6/dist-packages (from multimodal-transformers) (1.0.5)\n",
+            "Requirement already satisfied: future in /usr/local/lib/python3.6/dist-packages (from torch->multimodal-transformers) (0.16.0)\n",
+            "Collecting sacremoses\n",
+            "\u001b[?25l  Downloading https://files.pythonhosted.org/packages/7d/34/09d19aff26edcc8eb2a01bed8e98f13a1537005d31e95233fd48216eed10/sacremoses-0.0.43.tar.gz (883kB)\n",
+            "\u001b[K     |████████████████████████████████| 890kB 27.4MB/s \n",
+            "\u001b[?25hCollecting tokenizers==0.8.1.rc2\n",
+            "\u001b[?25l  Downloading https://files.pythonhosted.org/packages/80/83/8b9fccb9e48eeb575ee19179e2bdde0ee9a1904f97de5f02d19016b8804f/tokenizers-0.8.1rc2-cp36-cp36m-manylinux1_x86_64.whl (3.0MB)\n",
+            "\u001b[K     |████████████████████████████████| 3.0MB 23.3MB/s \n",
+            "\u001b[?25hRequirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.6/dist-packages (from transformers>=3.0->multimodal-transformers) (2019.12.20)\n",
+            "Requirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (from transformers>=3.0->multimodal-transformers) (2.23.0)\n",
+            "Requirement already satisfied: packaging in /usr/local/lib/python3.6/dist-packages (from transformers>=3.0->multimodal-transformers) (20.4)\n",
+            "Requirement already satisfied: filelock in /usr/local/lib/python3.6/dist-packages (from transformers>=3.0->multimodal-transformers) (3.0.12)\n",
+            "Requirement already satisfied: dataclasses; python_version < \"3.7\" in /usr/local/lib/python3.6/dist-packages (from transformers>=3.0->multimodal-transformers) (0.7)\n",
+            "Collecting sentencepiece!=0.1.92\n",
+            "\u001b[?25l  Downloading https://files.pythonhosted.org/packages/d4/a4/d0a884c4300004a78cca907a6ff9a5e9fe4f090f5d95ab341c53d28cbc58/sentencepiece-0.1.91-cp36-cp36m-manylinux1_x86_64.whl (1.1MB)\n",
+            "\u001b[K     |████████████████████████████████| 1.1MB 41.5MB/s \n",
+            "\u001b[?25hRequirement already satisfied: decorator>=4.3.0 in /usr/local/lib/python3.6/dist-packages (from networkx->multimodal-transformers) (4.4.2)\n",
+            "Requirement already satisfied: joblib>=0.11 in /usr/local/lib/python3.6/dist-packages (from scikit-learn->multimodal-transformers) (0.16.0)\n",
+            "Requirement already satisfied: python-dateutil>=2.6.1 in /usr/local/lib/python3.6/dist-packages (from pandas->multimodal-transformers) (2.8.1)\n",
+            "Requirement already satisfied: pytz>=2017.2 in /usr/local/lib/python3.6/dist-packages (from pandas->multimodal-transformers) (2018.9)\n",
+            "Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from sacremoses->transformers>=3.0->multimodal-transformers) (1.15.0)\n",
+            "Requirement already satisfied: click in /usr/local/lib/python3.6/dist-packages (from sacremoses->transformers>=3.0->multimodal-transformers) (7.1.2)\n",
+            "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.6/dist-packages (from requests->transformers>=3.0->multimodal-transformers) (2020.6.20)\n",
+            "Requirement already satisfied: chardet<4,>=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests->transformers>=3.0->multimodal-transformers) (3.0.4)\n",
+            "Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.6/dist-packages (from requests->transformers>=3.0->multimodal-transformers) (2.10)\n",
+            "Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /usr/local/lib/python3.6/dist-packages (from requests->transformers>=3.0->multimodal-transformers) (1.24.3)\n",
+            "Requirement already satisfied: pyparsing>=2.0.2 in /usr/local/lib/python3.6/dist-packages (from packaging->transformers>=3.0->multimodal-transformers) (2.4.7)\n",
+            "Building wheels for collected packages: multimodal-transformers, sacremoses\n",
+            "  Building wheel for multimodal-transformers (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for multimodal-transformers: filename=multimodal_transformers-0.11a0-cp36-none-any.whl size=18926 sha256=aaf455066a9c9cdc673d8031a9d2882bc93455ba471df2abd9d2d0875828a8ad\n",
+            "  Stored in directory: /root/.cache/pip/wheels/a2/49/ba/4390e2a185a0c45f4c4d9c453037a3c25b8c13604c5e967035\n",
+            "  Building wheel for sacremoses (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for sacremoses: filename=sacremoses-0.0.43-cp36-none-any.whl size=893257 sha256=2f9f812161d2b8288f74f07ec05d741f9fa01523a6983bbba8f9455f23a07f80\n",
+            "  Stored in directory: /root/.cache/pip/wheels/29/3c/fd/7ce5c3f0666dab31a50123635e6fb5e19ceb42ce38d4e58f45\n",
+            "Successfully built multimodal-transformers sacremoses\n",
+            "Installing collected packages: sacremoses, tokenizers, sentencepiece, transformers, multimodal-transformers\n",
+            "Successfully installed multimodal-transformers-0.11a0 sacremoses-0.0.43 sentencepiece-0.1.91 tokenizers-0.8.1rc2 transformers-3.1.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install multimodal-transformers\n",
+        "!pip install -q kaggle"
+      ]
+    }
+  ]
+}
